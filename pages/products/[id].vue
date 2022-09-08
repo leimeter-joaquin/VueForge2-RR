@@ -13,12 +13,11 @@ const { data: product } = await useAsyncData(
   },
   {
     pick: ['fields', 'sys'],
-  },
+    // eslint-disable-next-line @typescript-eslint/comma-dangle
+  }
 )
 
-const description = computed(() =>
-  product.value ? marked.parse(product.value?.fields?.description) : null,
-)
+const description = computed(() => product.value ? marked.parse(product.value?.fields?.description) : null)
 
 function handleAddToCart(product) {
   useAlertsStore().success(`${product.fields.name} added to cart`)

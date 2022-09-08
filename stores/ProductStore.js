@@ -34,6 +34,7 @@ export const useProductStore = defineStore('ProductStore', {
   },
   actions: {
     async fetchProducts() {
+      // eslint-disable-next-line no-undef
       const { $contentful } = useNuxtApp()
       const entries = await $contentful.getEntries({
         content_type: 'product',
