@@ -1,40 +1,45 @@
 <script setup>
-const router = useRouter();
-const alerts = useAlertsStore();
+const router = useRouter()
+const alerts = useAlertsStore()
 definePageMeta({
-  layout: "form-focus",
-});
+  layout: 'form-focus',
+})
 
-const deskree = useDeskree();
+const deskree = useDeskree()
 
 const form = reactive({
-  email: "",
-  password: "",
-  password_confirm: "",
-});
+  email: '',
+  password: '',
+  password_confirm: '',
+})
 
-const loading = ref(false);
+const loading = ref(false)
 async function handleRegistration(e) {
-  loading.value = true;
+  loading.value = true
   try {
-    await deskree.auth.signUp(form);
-    useRouter().push("/");
-  } catch (err) {
-    alerts.error("Error registering, please contact support");
-  } finally {
-    loading.value = false;
+    await deskree.auth.signUp(form)
+    useRouter().push('/')
+  }
+  catch (err) {
+    alerts.error('Error registering, please contact support')
+  }
+  finally {
+    loading.value = false
   }
 }
 </script>
+
 <template>
   <div>
-    <h2 class="card-title mb-5">Register</h2>
+    <h2 class="card-title mb-5">
+      Register
+    </h2>
     <FormKit
+      v-model="form"
       type="form"
       :config="{ validationVisibility: 'submit' }"
-      @submit="handleRegistration"
       :actions="false"
-      v-model="form"
+      @submit="handleRegistration"
     >
       <FormKit
         type="text"
@@ -56,7 +61,9 @@ async function handleRegistration(e) {
         validation="required|confirm"
         validation-label="Password"
       />
-      <AppButton class="btn-primary" :loading="loading">Register</AppButton>
+      <AppButton class="btn-primary" :loading="loading">
+        Register
+      </AppButton>
     </FormKit>
   </div>
 </template>

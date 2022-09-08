@@ -5,9 +5,11 @@
     </NuxtLink>
 
     <div>
-      <button class="snipcart-customer-signin">My account</button>
+      <button class="snipcart-customer-signin">
+        My account
+      </button>
       <button class="snipcart-checkout">
-        Cart <span class="snipcart-items-count"></span>
+        Cart <span class="snipcart-items-count" />
       </button>
     </div>
   </header>

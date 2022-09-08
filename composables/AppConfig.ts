@@ -1,5 +1,5 @@
 export const useAppConfig = () => {
   return {
-    siteName: "Awesome Sauce",
-  };
-};
+    siteName: 'Awesome Sauce',
+  }
+}

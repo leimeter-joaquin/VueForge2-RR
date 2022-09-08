@@ -1,6 +1,7 @@
 <script setup>
-const alerts = useAlertsStore();
+const alerts = useAlertsStore()
 </script>
+
 <template>
   <div class="toast toast-end">
     <TransitionGroup name="alerts">
@@ -11,7 +12,9 @@ const alerts = useAlertsStore();
       >
         <div class="flex">
           <div class="w-[20px] flex h-full justify-center items-center">
-            <button @click="alerts.remove(alert.id)" class="px-5">x</button>
+            <button class="px-5" @click="alerts.remove(alert.id)">
+              x
+            </button>
           </div>
           <div>{{ alert.message }}</div>
         </div>
@@ -19,6 +22,7 @@ const alerts = useAlertsStore();
     </TransitionGroup>
   </div>
 </template>
+
 <style scoped>
 .alerts-enter-active,
 .alerts-leave-active {

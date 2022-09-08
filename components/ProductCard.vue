@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  product: any;
-}>();
+  product: any
+}>()
 </script>
 
 <template>
@@ -11,13 +11,13 @@ defineProps<{
   >
     <div class="card h-full bg-base-100 shadow-xl relative">
       <div class="absolute top-0 right-0 p-5">
-        <ProductHeat :heatLevel="product.fields.heatLevel" />
+        <ProductHeat :heat-level="product.fields.heatLevel" />
       </div>
       <figure>
         <img
           :src="product.fields.image[0].fields?.file.url"
           :alt="product.fields.image[0].fields?.file.description"
-        />
+        >
       </figure>
       <div class="card-body">
         <h2 class="justify-between flex">
@@ -32,7 +32,9 @@ defineProps<{
           {{ product.fields.summary }}
         </p>
         <div class="card-actions justify-center mt-3">
-          <button class="btn btn-primary">View Item</button>
+          <button class="btn btn-primary">
+            View Item
+          </button>
         </div>
       </div>
     </div>

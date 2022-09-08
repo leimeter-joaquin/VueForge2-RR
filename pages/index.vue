@@ -1,7 +1,8 @@
 <script setup>
-const productStore = useProductStore();
-useAsyncData("products", async () => productStore.fetchProducts());
+const productStore = useProductStore()
+useAsyncData('products', async () => productStore.fetchProducts())
 </script>
+
 <template>
   <div>
     <HomeHero />
@@ -16,8 +17,8 @@ useAsyncData("products", async () => productStore.fetchProducts());
     >
       <ProductCard
         v-for="product in productStore.products"
-        :product="product"
         :key="product.sys.id"
+        :product="product"
         class="mb-5"
       />
     </div>
