@@ -1,14 +1,18 @@
 <script setup>
-const selected = ref([]);
-const checkAll = ref();
+const selected = ref([])
+const checkAll = ref()
 
 async function handleCheckout() {
-  console.log("checking out");
+  // eslint-disable-next-line no-console
+  console.log('checking out')
 }
 </script>
+
 <template>
   <div class="m-10">
-    <h1 class="text-3xl mb-5 font-bold">Your Cart</h1>
+    <h1 class="text-3xl mb-5 font-bold">
+      Your Cart
+    </h1>
     <div class="md:flex w-full">
       <div class="md:w-3/4">
         <!-- Use this markup to display an empty cart -->
@@ -23,14 +27,14 @@ async function handleCheckout() {
                 <tr>
                   <th>
                     <label>
-                      <input type="checkbox" class="checkbox" ref="checkAll" />
+                      <input ref="checkAll" type="checkbox" class="checkbox">
                     </label>
                   </th>
-                  <th></th>
+                  <th />
                   <th>Product</th>
                   <th>Price</th>
                   <th>Number of Items</th>
-                  <th></th>
+                  <th />
                 </tr>
               </thead>
               <tbody>
@@ -41,9 +45,9 @@ async function handleCheckout() {
                         v-model="selected"
                         type="checkbox"
                         class="checkbox"
-                        @change="checkAll.checked = false"
                         value="5ijmFfTSEqj0G8h73g3CrI"
-                      />
+                        @change="checkAll.checked = false"
+                      >
                     </label>
                   </th>
                   <td>
@@ -53,7 +57,7 @@ async function handleCheckout() {
                           <img
                             src="//images.ctfassets.net/v7fvzlkum53d/5vUkOQDUSZAKSwXByyeruQ/8d503e499b0a9649a0165b399efbaeca/61N0eH6L6LL._SX679_.jpeg"
                             alt="Heartbeat Hot Sauce- Pineapple Habanero"
-                          />
+                          >
                         </div>
                       </div>
                     </div>
@@ -73,7 +77,7 @@ async function handleCheckout() {
                       class="input input-bordered w-20"
                       type="number"
                       value="1"
-                    />
+                    >
                   </td>
                   <th>
                     <NuxtLink
@@ -82,7 +86,9 @@ async function handleCheckout() {
                         params: { id: '5ijmFfTSEqj0G8h73g3CrI' },
                       }"
                     >
-                      <button class="btn btn-ghost btn-xs">details</button>
+                      <button class="btn btn-ghost btn-xs">
+                        details
+                      </button>
                     </NuxtLink>
                   </th>
                 </tr>

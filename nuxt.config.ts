@@ -1,19 +1,19 @@
-import { defineNuxtConfig } from "nuxt";
+import { defineNuxtConfig } from 'nuxt'
 
-requireEnvVars();
+requireEnvVars()
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  css: ["@/assets/main.css", "@formkit/themes/genesis"],
+  css: ['@/assets/main.css', '@formkit/themes/genesis'],
   autoImports: {
-    dirs: ["stores"],
+    dirs: ['stores'],
   },
   modules: [
-    "@formkit/nuxt",
+    '@formkit/nuxt',
     [
-      "@pinia/nuxt",
+      '@pinia/nuxt',
       {
-        autoImports: ["defineStore", "acceptHMRUpdate"],
+        autoImports: ['defineStore', 'acceptHMRUpdate'],
       },
     ],
   ],
@@ -28,8 +28,8 @@ export default defineNuxtConfig({
   },
   build: {
     transpile:
-      process.env.npm_lifecycle_script === "nuxt generate"
-        ? ["contentful"]
+      process.env.npm_lifecycle_script === 'nuxt generate'
+        ? ['contentful']
         : [],
     postcss: {
       postcssOptions: {
@@ -40,22 +40,23 @@ export default defineNuxtConfig({
       },
     },
   },
-});
+})
 
 function requireEnvVars() {
   const map = {
-    "Deskree Project URL": process.env.NUXT_DESKREE_BASE_URL,
-    "Stripe secret token": process.env.STRIPE_SECRET,
-  };
-  let ready = true;
+    'Deskree Project URL': process.env.NUXT_DESKREE_BASE_URL,
+    'Stripe secret token': process.env.STRIPE_SECRET,
+  }
+  let ready = true
   for (const label in map) {
     if (!map[label]) {
-      ready = false;
+      ready = false
       console.error(
-        `You must provide a ${label} in .env to start the project (see the Setup Guide for more instructions: https://vueschool.notion.site/Preparation-Guide-cf256a7352704d27bb7946c47907d40e)`
-      );
+        `You must provide a ${label} in .env to start the project (see the Setup Guide for more instructions: https://vueschool.notion.site/Preparation-Guide-cf256a7352704d27bb7946c47907d40e)`,
+      )
     }
   }
 
-  if (!ready) process.exit();
+  if (!ready)
+    process.exit()
 }

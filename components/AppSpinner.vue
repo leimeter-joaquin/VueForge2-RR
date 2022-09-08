@@ -1,60 +1,63 @@
 <script setup lang="ts">
-const { size = "md", color = "blue" } = defineProps<{
-  size?: "sm" | "md" | "lg";
+const { size = 'md', color = 'blue' } = defineProps<{
+  size?: 'sm' | 'md' | 'lg'
   color?:
-    | "slate"
-    | "gray"
-    | "zinc"
-    | "neutral"
-    | "stone"
-    | "red"
-    | "orange"
-    | "amber"
-    | "lime"
-    | "green"
-    | "emerald"
-    | "teal"
-    | "cyan"
-    | "blue"
-    | "indigo"
-    | "violet"
-    | "purple"
-    | "fuchsia"
-    | "pink"
-    | "rose"
-    | "white"
-    | "black";
-}>();
+  | 'slate'
+  | 'gray'
+  | 'zinc'
+  | 'neutral'
+  | 'stone'
+  | 'red'
+  | 'orange'
+  | 'amber'
+  | 'lime'
+  | 'green'
+  | 'emerald'
+  | 'teal'
+  | 'cyan'
+  | 'blue'
+  | 'indigo'
+  | 'violet'
+  | 'purple'
+  | 'fuchsia'
+  | 'pink'
+  | 'rose'
+  | 'white'
+  | 'black'
+}>()
 
-const hidden = ref(true);
+const hidden = ref(true)
 
 const textColor = computed(() => {
-  if (color === "white") return "gray-200";
-  if (color === "black") return "gray-700";
-  return color + "-200";
-});
+  if (color === 'white')
+    return 'gray-200'
+  if (color === 'black')
+    return 'gray-700'
+  return `${color}-200`
+})
 const fillColor = computed(() =>
-  ["white", "black"].includes(color) ? color : color + "-600"
-);
+  ['white', 'black'].includes(color) ? color : `${color}-600`,
+)
 
 const hw = computed(() => {
   return {
-    sm: "4",
-    md: "8",
-    lg: "12",
-  }[size];
-});
+    sm: '4',
+    md: '8',
+    lg: '12',
+  }[size]
+})
 
-setTimeout(() => (hidden.value = false), 1);
+setTimeout(() => (hidden.value = false), 1)
 </script>
+
 <template>
   <div role="status">
     <svg
       aria-hidden="true"
       class="mr-2 animate-spin"
-      :class="` 
+      :class="`
         w-${hw} h-${hw}
-        text-${textColor} 
+        text-${textColor}
         fill-${fillColor}
         ${hidden ? 'opacity-0' : ''}
         `"

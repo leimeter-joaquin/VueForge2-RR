@@ -1,7 +1,8 @@
 <script setup>
-const productStore = useProductStore();
-const filters = computed(() => productStore.filters);
+const productStore = useProductStore()
+const filters = computed(() => productStore.filters)
 </script>
+
 <template>
   <div class="filters-wrapper flex gap-2 items-center">
     <div class="form-control">
@@ -13,7 +14,7 @@ const filters = computed(() => productStore.filters);
         v-model="filters.query"
         type="text"
         class="input input-bordered"
-      />
+      >
     </div>
     <div class="form-control w-full max-w-xs">
       <label class="label" for="filterHeat">
@@ -21,13 +22,21 @@ const filters = computed(() => productStore.filters);
       </label>
       <select
         id="filterHeat"
-        class="select select-bordered"
         v-model="filters[`fields.heatLevel`]"
+        class="select select-bordered"
       >
-        <option value="">All</option>
-        <option value="Mild">Mild</option>
-        <option value="Medium">Medium</option>
-        <option value="Hot">Hot</option>
+        <option value="">
+          All
+        </option>
+        <option value="Mild">
+          Mild
+        </option>
+        <option value="Medium">
+          Medium
+        </option>
+        <option value="Hot">
+          Hot
+        </option>
       </select>
     </div>
     <div class="form-control w-full max-w-xs">
@@ -35,15 +44,25 @@ const filters = computed(() => productStore.filters);
         <span class="label-text">Order by</span>
       </label>
       <select
-        class="select select-bordered"
-        v-model="filters.order"
         id="orderBy"
+        v-model="filters.order"
+        class="select select-bordered"
       >
-        <option value="">None</option>
-        <option value="-fields.heatLevel">Heat (Mild First)</option>
-        <option value="fields.heatLevel">Heat (Hot First)</option>
-        <option value="fields.price">Price (Low to High)</option>
-        <option value="-fields.price">Price (High to Low)</option>
+        <option value="">
+          None
+        </option>
+        <option value="-fields.heatLevel">
+          Heat (Mild First)
+        </option>
+        <option value="fields.heatLevel">
+          Heat (Hot First)
+        </option>
+        <option value="fields.price">
+          Price (Low to High)
+        </option>
+        <option value="-fields.price">
+          Price (High to Low)
+        </option>
       </select>
     </div>
   </div>
